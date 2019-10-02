@@ -50,3 +50,12 @@ def update(request, id):
     todo.save()
 
     return redirect('/todos/')
+
+def detail(request, id):
+    todo = Todo.objects.get(id=id)
+
+    context = {
+        'todo' : todo
+    }
+
+    return render(request, 'detail.html', context)
